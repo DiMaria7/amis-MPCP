@@ -1,0 +1,644 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "type": "tpl",
+      "tpl": "服务注册申请",
+      "wrapperComponent": "",
+      "inline": true,
+      "id": "u:9ca86673ca65",
+      "themeCss": {
+        "baseControlClassName": {
+          "background:default": "var(--colors-brand-10)",
+          "font:default": {
+            "font-family": "Microsoft YaHei",
+            "fontSize": "var(--fonts-size-5)",
+            "fontWeight": "var(--fonts-weight-6)",
+            "text-align": "left",
+            "color": "var(--colors-neutral-text-2)"
+          },
+          "border:default": {
+            "top-border-style": "var(--borders-style-1)",
+            "left-border-style": "var(--borders-style-1)",
+            "right-border-style": "var(--borders-style-1)",
+            "bottom-border-style": "var(--borders-style-1)",
+            "top-border-width": "var(--borders-width-1)",
+            "left-border-width": "var(--borders-width-1)",
+            "right-border-width": "var(--borders-width-1)",
+            "bottom-border-width": "var(--borders-width-1)"
+          },
+          "radius:default": {
+            "top-left-border-radius": "var(--borders-radius-3)",
+            "top-right-border-radius": "var(--borders-radius-3)",
+            "bottom-left-border-radius": "var(--borders-radius-3)",
+            "bottom-right-border-radius": "var(--borders-radius-3)"
+          },
+          "padding-and-margin:default": {
+            "marginTop": "var(--sizes-size-6)",
+            "marginRight": "var(--sizes-size-6)",
+            "marginBottom": "var(--sizes-size-6)",
+            "marginLeft": "var(--sizes-size-6)",
+            "paddingTop": "var(--sizes-size-5)",
+            "paddingRight": "var(--sizes-size-5)",
+            "paddingBottom": "var(--sizes-size-5)",
+            "paddingLeft": "var(--sizes-size-5)"
+          }
+        }
+      }
+    },
+    {
+      "id": "u:2ab894b7f468",
+      "type": "form",
+      "title": "表单填写",
+      "mode": "flex",
+      "labelAlign": "left",
+      "dsType": "api",
+      "feat": "Insert",
+      "body": [
+        {
+          "name": "serviceName",
+          "label": "服务名",
+          "row": 0,
+          "type": "select",
+          "id": "u:2172c2b3d42b",
+          "multiple": false,
+          "options": [
+            {
+              "label": "用电统计",
+              "value": "用电统计"
+            },
+            {
+              "label": "消费统计",
+              "value": "消费统计"
+            },
+            {
+              "label": "其他",
+              "value": "其他"
+            }
+          ],
+          "colSize": "1"
+        },
+        {
+          "type": "input-text",
+          "label": "服务方ID",
+          "name": "serviceID",
+          "row": 1,
+          "id": "u:e4b2f2bf9f01"
+        },
+        {
+          "type": "input-text",
+          "label": "handle名",
+          "name": "handleName",
+          "row": 2,
+          "id": "u:ac5fd1ca72dd"
+        },
+        {
+          "type": "select",
+          "label": "句柄类型",
+          "name": "handleType",
+          "options": [
+            {
+              "label": "原子句柄",
+              "value": "原子句柄"
+            },
+            {
+              "label": "组合句柄",
+              "value": "组合句柄"
+            }
+          ],
+          "row": 3,
+          "id": "u:9ec8316cd29d",
+          "multiple": false
+        },
+        {
+          "type": "select",
+          "label": "提供方ID",
+          "name": "providerID",
+          "row": 4,
+          "id": "u:1fcf12cfef8a",
+          "multiple": false,
+          "options": [
+            {
+              "label": "提供方1",
+              "value": "提供方1"
+            },
+            {
+              "label": "京东",
+              "value": "京东"
+            },
+            {
+              "label": "其他",
+              "value": "其他"
+            }
+          ],
+          "colSize": "1"
+        },
+        {
+          "type": "select",
+          "label": "数据库名",
+          "name": "databaseName",
+          "row": 5,
+          "id": "u:d519222b8415",
+          "multiple": false,
+          "colSize": "1",
+          "options": [
+            {
+              "label": "database_1",
+              "value": "database_1"
+            },
+            {
+              "label": "database_2",
+              "value": "database_2"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "label": "乱码输入",
+          "name": "keyValueContent",
+          "row": 6,
+          "id": "u:ac23bf964178",
+          "multiple": true,
+          "addable": true,
+          "removable": true,
+          "removableMode": "icon",
+          "addBtn": {
+            "label": "新增乱码",
+            "icon": "fa fa-plus",
+            "level": "primary",
+            "size": "sm",
+            "id": "u:6fece4e4189f",
+            "onEvent": {
+              "click": {
+                "weight": 0,
+                "actions": [
+                  {
+                    "componentId": "u:ef3ad690cb6f",
+                    "ignoreError": false,
+                    "actionType": "setValue",
+                    "args": {
+                      "value": "${keyValueCount + 1}"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "items": [
+            {
+              "type": "input-text",
+              "label": "乱码键值名",
+              "name": "keyValueName",
+              "id": "u:545087ed016e",
+              "value": "乱码键值",
+              "readOnly": false,
+              "visible": true
+            },
+            {
+              "type": "select",
+              "label": "原始表名",
+              "name": "originalTableName",
+              "options": [
+                {
+                  "label": "POB_POINT",
+                  "value": "POB_POINT"
+                },
+                {
+                  "label": "ZDT_BM_1306",
+                  "value": "ZDT_BM_1306"
+                },
+                {
+                  "label": "其他",
+                  "value": "B"
+                }
+              ],
+              "id": "u:cd7e542dec67",
+              "multiple": false
+            },
+            {
+              "type": "input-text",
+              "label": "脱敏表名",
+              "name": "secureTableName",
+              "id": "u:b8eae0c1698d"
+            },
+            {
+              "type": "input-text",
+              "label": "字段数量",
+              "name": "fieldCount",
+              "id": "u:835c126470b3",
+              "labelAlign": "inherit",
+              "readOnly": true,
+              "value": "0"
+            },
+            {
+              "type": "combo",
+              "label": "字段输入",
+              "name": "fieldContent",
+              "multiple": true,
+              "addable": true,
+              "removable": true,
+              "removableMode": "icon",
+              "addBtn": {
+                "label": "新增字段",
+                "icon": "fa fa-plus",
+                "level": "primary",
+                "size": "sm",
+                "id": "u:a966c2134c7a",
+                "onEvent": {
+                  "click": {
+                    "weight": 0,
+                    "actions": [
+                      {
+                        "componentId": "u:835c126470b3",
+                        "ignoreError": false,
+                        "actionType": "setValue",
+                        "args": {
+                          "value": "${fieldCount+1 }"
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "items": [
+                {
+                  "type": "select",
+                  "name": "fieldName",
+                  "placeholder": "请选择",
+                  "options": [
+                    {
+                      "label": "CUSTOMERID",
+                      "value": "CUSTOMERID"
+                    },
+                    {
+                      "label": "POINTID",
+                      "value": "POINTID"
+                    },
+                    {
+                      "label": "DATATIME",
+                      "value": "DATATIME"
+                    }
+                  ],
+                  "id": "u:ad8afe2f7f1e",
+                  "multiple": false,
+                  "label": "字段名",
+                  "checkAll": true,
+                  "defaultCheckAll": false,
+                  "checkAllLabel": "全选",
+                  "searchable": true,
+                  "labelAlign": "inherit"
+                }
+              ],
+              "id": "u:c76a701c0a85",
+              "strictMode": true,
+              "syncFields": [],
+              "tabsMode": false,
+              "multiLine": false,
+              "description": " ",
+              "placeholder": "",
+              "onEvent": {
+                "delete": {
+                  "weight": 0,
+                  "actions": [
+                    {
+                      "componentId": "u:835c126470b3",
+                      "ignoreError": false,
+                      "actionType": "setValue",
+                      "args": {
+                        "value": "${fieldCount-1}"
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "select",
+              "label": "拼接算法动态库名",
+              "name": "libName",
+              "options": [
+                {
+                  "label": "libJHTMSticher.so",
+                  "value": "libJHTMSticher.so"
+                },
+                {
+                  "label": "其他",
+                  "value": "B"
+                }
+              ],
+              "id": "u:e9c53a50d1a4",
+              "multiple": false
+            },
+            {
+              "type": "select",
+              "label": "拼接算法函数名",
+              "name": "funcName",
+              "options": [
+                {
+                  "label": "JHTM_sticher",
+                  "value": "JHTM_sticher"
+                },
+                {
+                  "label": "其他",
+                  "value": "B"
+                }
+              ],
+              "id": "u:b275a609a063",
+              "multiple": false
+            },
+            {
+              "type": "select",
+              "label": "乱码位数",
+              "name": "garbleBitCount",
+              "options": [
+                {
+                  "label": "8",
+                  "value": "8"
+                },
+                {
+                  "label": "16",
+                  "value": "16"
+                },
+                {
+                  "label": "24",
+                  "value": "24"
+                },
+                {
+                  "label": "32",
+                  "value": "32"
+                },
+                {
+                  "label": "64",
+                  "value": "64"
+                }
+              ],
+              "id": "u:87120104c3ab",
+              "multiple": false,
+              "labelAlign": "inherit"
+            },
+            {
+              "type": "select",
+              "label": "覆盖方式",
+              "name": "garbleCoverType",
+              "options": [
+                {
+                  "label": "1：全覆盖，开始字节数与覆盖字节数默认为0",
+                  "value": "1"
+                },
+                {
+                  "label": "2：部分覆盖",
+                  "value": "2"
+                },
+                {
+                  "label": "3：拆分覆盖",
+                  "value": "3"
+                }
+              ],
+              "id": "u:cc826303eb54",
+              "multiple": false
+            },
+            {
+              "type": "combo",
+              "label": "乱码保存字段",
+              "name": "garbleSaveField",
+              "id": "u:fa3d9233872f",
+              "multiple": true,
+              "addable": true,
+              "removable": true,
+              "removableMode": "icon",
+              "addBtn": {
+                "label": "新增",
+                "icon": "fa fa-plus",
+                "level": "primary",
+                "size": "sm",
+                "id": "u:5342dfa79bf7"
+              },
+              "items": [
+                {
+                  "type": "select",
+                  "name": "fieldName",
+                  "placeholder": "选项",
+                  "options": [
+                    {
+                      "label": "CUSTOMERID",
+                      "value": "CUSTOMERID"
+                    },
+                    {
+                      "label": "POINTID",
+                      "value": "POINTID"
+                    },
+                    {
+                      "label": "DATATIME",
+                      "value": "DATATIME"
+                    }
+                  ],
+                  "id": "u:e32ee34627f4",
+                  "multiple": false,
+                  "label": "字段名"
+                },
+                {
+                  "type": "input-text",
+                  "label": "开始字节数",
+                  "name": "startByte",
+                  "id": "u:5ccde3b57e8d"
+                },
+                {
+                  "type": "input-text",
+                  "label": "覆盖字节数",
+                  "name": "coverByte",
+                  "id": "u:4fc6628dd09d"
+                }
+              ],
+              "strictMode": true,
+              "syncFields": [],
+              "placeholder": ""
+            },
+            {
+              "type": "select",
+              "label": "乱码算法",
+              "name": "garbleAlgorithm",
+              "multiple": false,
+              "id": "u:63ee6e76d1dc",
+              "options": [
+                {
+                  "label": "SM3",
+                  "value": "SM3"
+                },
+                {
+                  "label": "其他",
+                  "value": "B"
+                }
+              ]
+            }
+          ],
+          "strictMode": true,
+          "syncFields": [],
+          "placeholder": "",
+          "onEvent": {
+            "delete": {
+              "weight": 0,
+              "actions": [
+                {
+                  "componentId": "u:ef3ad690cb6f",
+                  "ignoreError": false,
+                  "actionType": "setValue",
+                  "args": {
+                    "value": "${keyValueCount-1}"
+                  }
+                }
+              ]
+            }
+          },
+          "draggable": false,
+          "colSize": "1",
+          "multiLine": true,
+          "size": "full",
+          "subFormMode": ""
+        },
+        {
+          "type": "input-text",
+          "label": "乱码数量",
+          "name": "keyValueCount",
+          "row": 7,
+          "id": "u:ef3ad690cb6f",
+          "hidden": false,
+          "colSize": "1",
+          "value": "0",
+          "showCounter": false,
+          "clearable": false,
+          "autoFill": {},
+          "onEvent": {},
+          "readOnly": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "button",
+          "label": "重置",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "reset",
+                  "componentId": "u:2ab894b7f468"
+                }
+              ]
+            }
+          },
+          "level": "default",
+          "id": "u:1c171e5bc0dc"
+        },
+        {
+          "type": "button",
+          "label": "提交",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "submit",
+                  "componentId": "u:2ab894b7f468"
+                }
+              ]
+            }
+          },
+          "level": "primary",
+          "id": "u:c6c9389d105b"
+        }
+      ],
+      "resetAfterSubmit": true,
+      "loadingConfig": {
+        "show": true
+      },
+      "rules": [
+        {}
+      ],
+      "themeCss": {
+        "panelClassName": {
+          "padding-and-margin:default": {
+            "marginTop": "var(--sizes-size-5)",
+            "marginRight": "var(--sizes-size-5)",
+            "marginBottom": "var(--sizes-size-5)",
+            "marginLeft": "var(--sizes-size-5)"
+          }
+        }
+      },
+      "wrapWithPanel": true,
+      "affixFooter": false,
+      "onEvent": {
+        "submitSucc": {
+          "weight": 0,
+          "actions": [
+            {
+              "ignoreError": false,
+              "actionType": "confirmDialog",
+              "dialog": {
+                "type": "dialog",
+                "title": "",
+                "body": [
+                  {
+                    "type": "tpl",
+                    "tpl": "注册成功",
+                    "inline": true,
+                    "wrapperComponent": "",
+                    "id": "u:9aa810403a92"
+                  }
+                ],
+                "id": "u:89cddfc00fa2",
+                "actions": [
+                  {
+                    "type": "button",
+                    "actionType": "cancel",
+                    "label": "取消",
+                    "id": "u:4b31736a2a8c"
+                  },
+                  {
+                    "type": "button",
+                    "actionType": "confirm",
+                    "label": "确定",
+                    "primary": true,
+                    "id": "u:f19728198e06"
+                  }
+                ],
+                "showCloseButton": true,
+                "closeOnOutside": false,
+                "closeOnEsc": false,
+                "showErrorMsg": true,
+                "showLoading": true,
+                "draggable": false,
+                "actionType": "confirmDialog",
+                "resizable": false
+              }
+            }
+          ]
+        }
+      },
+      "api": {
+        "url": "http://10.122.216.136:8808/api/v1/system/handle/register",
+        "method": "post",
+        "requestAdaptor": "",
+        "adaptor": "",
+        "messages": {},
+        "dataType": "json"
+      }
+    }
+  ],
+  "id": "u:1f2f1ebabca8",
+  "asideResizor": false,
+  "pullRefresh": {
+    "disabled": true
+  },
+  "regions": [
+    "body"
+  ],
+  "toolbar": [],
+  "themeCss": {
+    "titleControlClassName": {
+      "font:default": {
+        "font-family": "Microsoft YaHei"
+      }
+    }
+  },
+  "definitions": {},
+  "data": {},
+  "title": ""
+}

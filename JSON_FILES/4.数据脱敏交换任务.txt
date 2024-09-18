@@ -1,0 +1,360 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "type": "tpl",
+      "id": "u:9ca86673ca65",
+      "tpl": "数据脱敏交换任务",
+      "inline": true,
+      "wrapperComponent": "",
+      "themeCss": {
+        "baseControlClassName": {
+          "background:default": "var(--colors-brand-10)",
+          "font:default": {
+            "font-family": "Microsoft YaHei",
+            "fontSize": "var(--fonts-size-5)",
+            "fontWeight": "var(--fonts-weight-6)",
+            "text-align": "left",
+            "color": "var(--colors-neutral-text-2)"
+          },
+          "border:default": {
+            "top-border-style": "var(--borders-style-1)",
+            "left-border-style": "var(--borders-style-1)",
+            "right-border-style": "var(--borders-style-1)",
+            "bottom-border-style": "var(--borders-style-1)",
+            "top-border-width": "var(--borders-width-1)",
+            "left-border-width": "var(--borders-width-1)",
+            "right-border-width": "var(--borders-width-1)",
+            "bottom-border-width": "var(--borders-width-1)"
+          },
+          "radius:default": {
+            "top-left-border-radius": "var(--borders-radius-3)",
+            "top-right-border-radius": "var(--borders-radius-3)",
+            "bottom-left-border-radius": "var(--borders-radius-3)",
+            "bottom-right-border-radius": "var(--borders-radius-3)"
+          },
+          "padding-and-margin:default": {
+            "marginTop": "var(--sizes-size-6)",
+            "marginRight": "var(--sizes-size-6)",
+            "marginBottom": "var(--sizes-size-6)",
+            "marginLeft": "var(--sizes-size-6)",
+            "paddingTop": "var(--sizes-size-5)",
+            "paddingRight": "var(--sizes-size-5)",
+            "paddingBottom": "var(--sizes-size-5)",
+            "paddingLeft": "var(--sizes-size-5)"
+          }
+        }
+      }
+    },
+    {
+      "id": "u:2ab894b7f468",
+      "type": "form",
+      "title": "表单填写",
+      "mode": "flex",
+      "labelAlign": "left",
+      "dsType": "api",
+      "feat": "Insert",
+      "body": [
+        {
+          "name": "service_name",
+          "label": "服务名",
+          "row": 0,
+          "type": "select",
+          "id": "u:2172c2b3d42b",
+          "multiple": false,
+          "options": [
+            {
+              "label": "用电统计",
+              "value": "用电统计"
+            },
+            {
+              "label": "消费统计",
+              "value": "消费统计"
+            },
+            {
+              "label": "其他",
+              "value": "其他"
+            }
+          ]
+        },
+        {
+          "name": "provider_name",
+          "label": "提供方名",
+          "row": 1,
+          "type": "select",
+          "id": "u:1fcf12cfef8a",
+          "multiple": true,
+          "options": [
+            {
+              "label": "计量中心1",
+              "value": "计量中心1"
+            },
+            {
+              "label": "计量中心2",
+              "value": "计量中心2"
+            },
+            {
+              "label": "其他",
+              "value": "其他"
+            }
+          ],
+          "checkAll": true,
+          "defaultCheckAll": false,
+          "checkAllLabel": "全选",
+          "searchable": true
+        },
+        {
+          "type": "select",
+          "label": "handle名",
+          "name": "handle_id",
+          "options": [
+            {
+              "label": "handle1",
+              "value": "handle1"
+            },
+            {
+              "label": "handle2",
+              "value": "handle2"
+            },
+            {
+              "label": "其他",
+              "value": "其他"
+            }
+          ],
+          "row": 2,
+          "id": "u:d519222b8415",
+          "multiple": true,
+          "colSize": "1",
+          "checkAll": true,
+          "defaultCheckAll": false,
+          "checkAllLabel": "全选",
+          "onEvent": {},
+          "joinValues": true
+        },
+        {
+          "type": "input-text",
+          "label": "数据库名",
+          "name": "database_name",
+          "row": 3,
+          "id": "u:e972734d251d",
+          "readOnly": true,
+          "onEvent": {},
+          "value": "${IFS(handle_id=='handle1', 'database_1', handle_id=='handle2', 'database_2')}",
+          "autoFill": {}
+        },
+        {
+          "type": "input-text",
+          "label": "数据表名",
+          "name": "table_name",
+          "row": 4,
+          "id": "u:dec2a2f138b3",
+          "readOnly": true,
+          "value": "${IFS(handle_id=='handle1','POB_POINT',handle_id=='handle2','ZDT_BM_1306')}"
+        }
+      ],
+      "actions": [
+        {
+          "type": "button",
+          "label": "重置",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "reset",
+                  "componentId": "u:2ab894b7f468"
+                }
+              ]
+            }
+          },
+          "level": "default",
+          "id": "u:1c171e5bc0dc"
+        },
+        {
+          "type": "button",
+          "label": "提交",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "submit",
+                  "componentId": "u:2ab894b7f468"
+                },
+                {
+                  "componentId": "u:cb143a055526",
+                  "ignoreError": false,
+                  "actionType": "setValue",
+                  "args": {
+                    "value": {
+                      "服务名": "用电统计"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "level": "primary",
+          "id": "u:c6c9389d105b"
+        }
+      ],
+      "resetAfterSubmit": true,
+      "loadingConfig": {
+        "show": true
+      },
+      "rules": [
+        {}
+      ],
+      "themeCss": {
+        "panelClassName": {
+          "padding-and-margin:default": {
+            "marginTop": "var(--sizes-size-5)",
+            "marginRight": "var(--sizes-size-5)",
+            "marginBottom": "var(--sizes-size-5)",
+            "marginLeft": "var(--sizes-size-5)"
+          }
+        }
+      },
+      "wrapWithPanel": true,
+      "affixFooter": false,
+      "onEvent": {
+        "submitSucc": {
+          "weight": 0,
+          "actions": [
+            {
+              "ignoreError": false,
+              "actionType": "toast",
+              "dialog": {
+                "type": "dialog",
+                "title": "",
+                "body": [
+                  {
+                    "type": "tpl",
+                    "tpl": "注册成功",
+                    "inline": true,
+                    "wrapperComponent": "",
+                    "id": "u:9aa810403a92"
+                  }
+                ],
+                "id": "u:89cddfc00fa2",
+                "actions": [
+                  {
+                    "type": "button",
+                    "actionType": "cancel",
+                    "label": "取消",
+                    "id": "u:4b31736a2a8c"
+                  },
+                  {
+                    "type": "button",
+                    "actionType": "confirm",
+                    "label": "确定",
+                    "primary": true,
+                    "id": "u:f19728198e06"
+                  }
+                ],
+                "showCloseButton": true,
+                "closeOnOutside": false,
+                "closeOnEsc": false,
+                "showErrorMsg": true,
+                "showLoading": true,
+                "draggable": false,
+                "actionType": "confirmDialog",
+                "resizable": false
+              },
+              "args": {
+                "msgType": "info",
+                "position": "top-right",
+                "closeButton": true,
+                "showIcon": true,
+                "msg": "已提交",
+                "className": "theme-toast-action-scope"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "divider",
+      "id": "u:39378db6cbb3",
+      "lineStyle": "solid",
+      "direction": "horizontal",
+      "rotate": 0,
+      "color": "var(--colors-brand-10)",
+      "style": {
+        "borderWidth": "var(--sizes-size-3)",
+        "marginTop": "var(--sizes-size-5)",
+        "marginRight": "var(--sizes-size-5)",
+        "marginBottom": "var(--sizes-size-5)",
+        "marginLeft": "var(--sizes-size-5)"
+      }
+    },
+    {
+      "type": "crud",
+      "syncLocation": false,
+      "api": {
+        "method": "get",
+        "url": ""
+      },
+      "bulkActions": [],
+      "itemActions": [],
+      "id": "u:cb143a055526",
+      "perPageAvailable": [
+        5,
+        10,
+        20,
+        50,
+        100
+      ],
+      "messages": {},
+      "headerToolbar": [
+        "bulkActions"
+      ],
+      "columns": [
+        {
+          "name": "service_name",
+          "label": "服务名",
+          "type": "text",
+          "id": "u:cfbf40c1a014",
+          "placeholder": "/"
+        },
+        {
+          "name": "provider_name",
+          "label": "提供方名",
+          "type": "text",
+          "id": "u:45b8883bc500",
+          "placeholder": "-"
+        },
+        {
+          "type": "text",
+          "label": "数据表名",
+          "name": "table_name",
+          "id": "u:33860e816485"
+        },
+        {
+          "type": "text",
+          "label": "交换结果",
+          "name": "exchange_result",
+          "id": "u:9719128f8d2c",
+          "placeholder": "/"
+        }
+      ]
+    }
+  ],
+  "id": "u:1f2f1ebabca8",
+  "asideResizor": false,
+  "pullRefresh": {
+    "disabled": true
+  },
+  "regions": [
+    "body"
+  ],
+  "toolbar": [],
+  "themeCss": {
+    "titleControlClassName": {
+      "font:default": {
+        "font-family": "Microsoft YaHei"
+      }
+    }
+  },
+  "definitions": {},
+  "data": {}
+}

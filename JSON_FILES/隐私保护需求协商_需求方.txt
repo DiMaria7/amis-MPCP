@@ -1,0 +1,212 @@
+{
+  "type": "page",
+  "body": [
+    {
+      "type": "tpl",
+      "tpl": "隐私保护需求协商",
+      "wrapperComponent": "",
+      "inline": true,
+      "id": "u:9ca86673ca65",
+      "themeCss": {
+        "baseControlClassName": {
+          "background:default": "var(--colors-brand-10)",
+          "font:default": {
+            "font-family": "Microsoft YaHei",
+            "fontSize": "var(--fonts-size-5)",
+            "fontWeight": "var(--fonts-weight-6)",
+            "text-align": "left",
+            "color": "var(--colors-neutral-text-2)"
+          },
+          "border:default": {
+            "top-border-style": "var(--borders-style-1)",
+            "left-border-style": "var(--borders-style-1)",
+            "right-border-style": "var(--borders-style-1)",
+            "bottom-border-style": "var(--borders-style-1)",
+            "top-border-width": "var(--borders-width-1)",
+            "left-border-width": "var(--borders-width-1)",
+            "right-border-width": "var(--borders-width-1)",
+            "bottom-border-width": "var(--borders-width-1)"
+          },
+          "radius:default": {
+            "top-left-border-radius": "var(--borders-radius-3)",
+            "top-right-border-radius": "var(--borders-radius-3)",
+            "bottom-left-border-radius": "var(--borders-radius-3)",
+            "bottom-right-border-radius": "var(--borders-radius-3)"
+          },
+          "padding-and-margin:default": {
+            "marginTop": "var(--sizes-size-6)",
+            "marginRight": "var(--sizes-size-6)",
+            "marginBottom": "var(--sizes-size-6)",
+            "marginLeft": "var(--sizes-size-6)",
+            "paddingTop": "var(--sizes-size-5)",
+            "paddingRight": "var(--sizes-size-5)",
+            "paddingBottom": "var(--sizes-size-5)",
+            "paddingLeft": "var(--sizes-size-5)"
+          }
+        }
+      }
+    },
+    {
+      "id": "u:2ab894b7f468",
+      "type": "form",
+      "title": "表单填写",
+      "mode": "flex",
+      "labelAlign": "left",
+      "dsType": "api",
+      "feat": "Insert",
+      "body": [
+        {
+          "type": "input-text",
+          "label": "数据库名",
+          "name": "database_test_name",
+          "row": 0,
+          "id": "u:bec8d4303640"
+        },
+        {
+          "type": "input-text",
+          "label": "数据表名",
+          "name": "table_test_name",
+          "row": 1,
+          "id": "u:fba2ff4fab7c"
+        }
+      ],
+      "actions": [
+        {
+          "type": "button",
+          "label": "重置",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "reset",
+                  "componentId": "u:2ab894b7f468"
+                }
+              ]
+            }
+          },
+          "level": "default",
+          "id": "u:1c171e5bc0dc"
+        },
+        {
+          "type": "button",
+          "label": "提交",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "submit",
+                  "componentId": "u:2ab894b7f468"
+                },
+                {
+                  "componentId": "u:cb143a055526",
+                  "ignoreError": false,
+                  "actionType": "setValue",
+                  "args": {
+                    "value": {
+                      "服务名": "用电统计"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "level": "primary",
+          "id": "u:c6c9389d105b"
+        }
+      ],
+      "resetAfterSubmit": true,
+      "loadingConfig": {
+        "show": true
+      },
+      "rules": [
+        {}
+      ],
+      "themeCss": {
+        "panelClassName": {
+          "padding-and-margin:default": {
+            "marginTop": "var(--sizes-size-5)",
+            "marginRight": "var(--sizes-size-5)",
+            "marginBottom": "var(--sizes-size-5)",
+            "marginLeft": "var(--sizes-size-5)"
+          }
+        }
+      },
+      "wrapWithPanel": true,
+      "affixFooter": false,
+      "onEvent": {
+        "submitSucc": {
+          "weight": 0,
+          "actions": [
+            {
+              "ignoreError": false,
+              "actionType": "toast",
+              "dialog": {
+                "type": "dialog",
+                "title": "",
+                "body": [
+                  {
+                    "type": "tpl",
+                    "tpl": "注册成功",
+                    "inline": true,
+                    "wrapperComponent": "",
+                    "id": "u:9aa810403a92"
+                  }
+                ],
+                "id": "u:89cddfc00fa2",
+                "actions": [
+                  {
+                    "type": "button",
+                    "actionType": "cancel",
+                    "label": "取消",
+                    "id": "u:4b31736a2a8c"
+                  },
+                  {
+                    "type": "button",
+                    "actionType": "confirm",
+                    "label": "确定",
+                    "primary": true,
+                    "id": "u:f19728198e06"
+                  }
+                ],
+                "showCloseButton": true,
+                "closeOnOutside": false,
+                "closeOnEsc": false,
+                "showErrorMsg": true,
+                "showLoading": true,
+                "draggable": false,
+                "actionType": "confirmDialog",
+                "resizable": false
+              },
+              "args": {
+                "msgType": "info",
+                "position": "top-right",
+                "closeButton": true,
+                "showIcon": true,
+                "msg": "已提交",
+                "className": "theme-toast-action-scope"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "id": "u:1f2f1ebabca8",
+  "asideResizor": false,
+  "pullRefresh": {
+    "disabled": true
+  },
+  "regions": [
+    "body"
+  ],
+  "toolbar": [],
+  "themeCss": {
+    "titleControlClassName": {
+      "font:default": {
+        "font-family": "Microsoft YaHei"
+      }
+    }
+  },
+  "definitions": {},
+  "data": {}
+}
