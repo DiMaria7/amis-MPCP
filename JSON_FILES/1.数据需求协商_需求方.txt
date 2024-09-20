@@ -198,7 +198,7 @@
         }
       },
       "api": {
-        "url": "http://10.122.216.136:8808/api/v1/system/handle/negotiation",
+        "url": "http://10.122.226.168:8808/api/v1/system/handle/negotiation",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",
@@ -210,7 +210,7 @@
       "syncLocation": false,
       "api": {
         "method": "post",
-        "url": "http://10.122.216.136:8808/api/v1/system/handle/negotiationList",
+        "url": "http://10.122.226.168:8808/api/v1/system/handle/negotiationList",
         "messages": {},
         "requestAdaptor": "",
         "adaptor": ""
@@ -226,7 +226,10 @@
         100
       ],
       "messages": {},
-      "defaultParams": {},
+      "defaultParams": {
+        "owner_id": "12",
+        "user_type": "owner"
+      },
       "columnsTogglable": "auto",
       "placeholder": "暂无数据",
       "title": "数据交换请求",
@@ -743,7 +746,7 @@
                             "resetAfterSubmit": true,
                             "initApi": "",
                             "api": {
-                              "url": "http://10.122.216.136:8808/api/v1/system/handle/notify",
+                              "url": "http://10.122.226.168:8808/api/v1/system/handle/notify",
                               "method": "post",
                               "requestAdaptor": "",
                               "adaptor": "",
@@ -780,7 +783,7 @@
                 }
               },
               "id": "u:ceae35749534",
-              "visibleOn": "${status==\"start\"}"
+              "visibleOn": "${status==\"agree\"}"
             }
           ],
           "id": "u:9e183b2ea3fa",

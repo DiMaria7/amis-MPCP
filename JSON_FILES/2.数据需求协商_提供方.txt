@@ -66,7 +66,7 @@
       "syncLocation": false,
       "api": {
         "method": "post",
-        "url": "http://10.122.216.136:8808/api/v1/system/handle/negotiationList",
+        "url": "http://localhost:8808/api/v1/system/handle/negotiationList",
         "messages": {},
         "requestAdaptor": "",
         "adaptor": ""
@@ -82,7 +82,10 @@
         100
       ],
       "messages": {},
-      "defaultParams": {},
+      "defaultParams": {
+        "user_type": "provider",
+        "provider_id": "1234"
+      },
       "columnsTogglable": "auto",
       "placeholder": "暂无数据",
       "title": "数据交换请求",
@@ -369,7 +372,7 @@
                       }
                     },
                     "api": {
-                      "url": "http://10.122.216.136:8808/api/v1/system/handle/negotiationAgree",
+                      "url": "http://localhost:8808/api/v1/system/handle/negotiationAgree",
                       "method": "post",
                       "requestAdaptor": "",
                       "adaptor": "",
@@ -583,7 +586,14 @@
           "placeholder": "-",
           "label": "操作"
         }
-      ]
+      ],
+      "quickSaveItemApi": {
+        "url": "http://localhost:8808/api/v1/system/handle/negotiationAgree",
+        "method": "post",
+        "messages": {},
+        "requestAdaptor": "",
+        "adaptor": ""
+      }
     },
     {
       "type": "button",
@@ -780,7 +790,7 @@
       },
       "visible": false,
       "api": {
-        "url": "http://10.122.216.136:8808/api/v1/system/handle/negotiationAgree",
+        "url": "http://localhost:8808/api/v1/system/handle/negotiationAgree",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",

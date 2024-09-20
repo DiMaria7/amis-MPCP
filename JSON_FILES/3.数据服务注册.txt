@@ -1,9 +1,10 @@
 {
   "type": "page",
+  "title": "",
   "body": [
     {
       "type": "tpl",
-      "tpl": "服务注册申请",
+      "tpl": "数据服务注册",
       "wrapperComponent": "",
       "inline": true,
       "id": "u:9ca86673ca65",
@@ -80,7 +81,7 @@
         },
         {
           "type": "input-text",
-          "label": "服务方ID",
+          "label": "服务ID",
           "name": "serviceID",
           "row": 1,
           "id": "u:e4b2f2bf9f01"
@@ -111,27 +112,11 @@
           "multiple": false
         },
         {
-          "type": "select",
+          "type": "input-text",
           "label": "提供方ID",
           "name": "providerID",
           "row": 4,
-          "id": "u:1fcf12cfef8a",
-          "multiple": false,
-          "options": [
-            {
-              "label": "提供方1",
-              "value": "提供方1"
-            },
-            {
-              "label": "京东",
-              "value": "京东"
-            },
-            {
-              "label": "其他",
-              "value": "其他"
-            }
-          ],
-          "colSize": "1"
+          "id": "u:94ef36684ae3"
         },
         {
           "type": "select",
@@ -149,8 +134,13 @@
             {
               "label": "database_2",
               "value": "database_2"
+            },
+            {
+              "label": "raw_sg",
+              "value": "raw_sg"
             }
-          ]
+          ],
+          "creatable": true
         },
         {
           "type": "combo",
@@ -190,7 +180,7 @@
               "label": "乱码键值名",
               "name": "keyValueName",
               "id": "u:545087ed016e",
-              "value": "乱码键值",
+              "value": "",
               "readOnly": false,
               "visible": true
             },
@@ -208,12 +198,17 @@
                   "value": "ZDT_BM_1306"
                 },
                 {
-                  "label": "其他",
+                  "label": "POB_CUSTOMER",
                   "value": "B"
+                },
+                {
+                  "label": "",
+                  "value": ""
                 }
               ],
               "id": "u:cd7e542dec67",
-              "multiple": false
+              "multiple": false,
+              "creatable": true
             },
             {
               "type": "input-text",
@@ -277,6 +272,14 @@
                     {
                       "label": "DATATIME",
                       "value": "DATATIME"
+                    },
+                    {
+                      "label": "DISC",
+                      "value": "DISC"
+                    },
+                    {
+                      "label": "ADDRESS",
+                      "value": "ADDRESS"
                     }
                   ],
                   "id": "u:ad8afe2f7f1e",
@@ -286,7 +289,8 @@
                   "defaultCheckAll": false,
                   "checkAllLabel": "全选",
                   "searchable": true,
-                  "labelAlign": "inherit"
+                  "labelAlign": "inherit",
+                  "creatable": true
                 }
               ],
               "id": "u:c76a701c0a85",
@@ -430,23 +434,31 @@
                     {
                       "label": "DATATIME",
                       "value": "DATATIME"
+                    },
+                    {
+                      "label": "DISC_security",
+                      "value": "DISC_security"
                     }
                   ],
                   "id": "u:e32ee34627f4",
                   "multiple": false,
-                  "label": "字段名"
+                  "label": "字段名",
+                  "creatable": true,
+                  "editable": true
                 },
                 {
                   "type": "input-text",
                   "label": "开始字节数",
                   "name": "startByte",
-                  "id": "u:5ccde3b57e8d"
+                  "id": "u:5ccde3b57e8d",
+                  "value": "0"
                 },
                 {
                   "type": "input-text",
                   "label": "覆盖字节数",
                   "name": "coverByte",
-                  "id": "u:4fc6628dd09d"
+                  "id": "u:4fc6628dd09d",
+                  "value": "0"
                 }
               ],
               "strictMode": true,
@@ -613,7 +625,7 @@
         }
       },
       "api": {
-        "url": "http://10.122.216.136:8808/api/v1/system/handle/register",
+        "url": "http://10.122.226.168:8808/api/v1/system/handle/register",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",
@@ -639,6 +651,5 @@
     }
   },
   "definitions": {},
-  "data": {},
-  "title": ""
+  "data": {}
 }

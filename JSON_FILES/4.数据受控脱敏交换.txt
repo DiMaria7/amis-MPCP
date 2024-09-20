@@ -3,7 +3,7 @@
   "body": [
     {
       "type": "tpl",
-      "tpl": "隐私保护需求协商",
+      "tpl": "数据受控脱敏交换",
       "wrapperComponent": "",
       "inline": true,
       "id": "u:9ca86673ca65",
@@ -57,17 +57,11 @@
       "body": [
         {
           "type": "input-text",
-          "label": "数据库名",
-          "name": "database_test_name",
+          "label": "服务ID",
+          "name": "serviceID",
           "row": 0,
-          "id": "u:bec8d4303640"
-        },
-        {
-          "type": "input-text",
-          "label": "数据表名",
-          "name": "table_test_name",
-          "row": 1,
-          "id": "u:fba2ff4fab7c"
+          "id": "u:917ccceacf1e",
+          "colSize": "1"
         }
       ],
       "actions": [
@@ -188,7 +182,80 @@
             }
           ]
         }
+      },
+      "api": {
+        "url": "http://10.122.226.168:8808/api/v1/system/exchange/sendExchangeRequest",
+        "method": "post",
+        "requestAdaptor": "",
+        "adaptor": "",
+        "messages": {}
       }
+    },
+    {
+      "type": "divider",
+      "id": "u:39378db6cbb3",
+      "lineStyle": "solid",
+      "direction": "horizontal",
+      "rotate": 0,
+      "color": "var(--colors-brand-10)",
+      "style": {
+        "borderWidth": "var(--sizes-size-3)",
+        "marginTop": "var(--sizes-size-5)",
+        "marginRight": "var(--sizes-size-5)",
+        "marginBottom": "var(--sizes-size-5)",
+        "marginLeft": "var(--sizes-size-5)"
+      }
+    },
+    {
+      "type": "crud",
+      "syncLocation": false,
+      "api": {
+        "method": "get",
+        "url": ""
+      },
+      "bulkActions": [],
+      "itemActions": [],
+      "id": "u:cb143a055526",
+      "perPageAvailable": [
+        5,
+        10,
+        20,
+        50,
+        100
+      ],
+      "messages": {},
+      "headerToolbar": [
+        "bulkActions"
+      ],
+      "columns": [
+        {
+          "name": "service_name",
+          "label": "服务名",
+          "type": "text",
+          "id": "u:cfbf40c1a014",
+          "placeholder": "/"
+        },
+        {
+          "name": "provider_name",
+          "label": "提供方名",
+          "type": "text",
+          "id": "u:45b8883bc500",
+          "placeholder": "-"
+        },
+        {
+          "type": "text",
+          "label": "数据表名",
+          "name": "table_name",
+          "id": "u:33860e816485"
+        },
+        {
+          "type": "text",
+          "label": "交换结果",
+          "name": "exchange_result",
+          "id": "u:9719128f8d2c",
+          "placeholder": "/"
+        }
+      ]
     }
   ],
   "id": "u:1f2f1ebabca8",
