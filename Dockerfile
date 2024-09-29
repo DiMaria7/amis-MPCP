@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装应用程序的依赖
+RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install
 
 # 将应用程序的源代码复制到容器中
