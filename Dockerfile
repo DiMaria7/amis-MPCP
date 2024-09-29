@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 80
 
 # 设置容器的默认命令
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
