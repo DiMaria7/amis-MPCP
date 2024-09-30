@@ -184,7 +184,7 @@
         }
       },
       "api": {
-        "url": "http://10.122.226.168:8808/api/v1/system/exchange/sendExchangeRequest",
+        "url": "http://127.0.0.1:8808/api/v1/system/exchange/sendExchangeRequest",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",
@@ -236,9 +236,9 @@
           "placeholder": "/"
         },
         {
-          "name": "provider_name",
-          "label": "提供方名",
           "type": "text",
+          "label": "提供方名",
+          "name": "provider_name",
           "id": "u:45b8883bc500",
           "placeholder": "-"
         },

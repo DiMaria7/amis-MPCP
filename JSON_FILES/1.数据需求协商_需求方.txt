@@ -86,6 +86,15 @@
           "row": 3,
           "id": "u:9da80d1f4c83",
           "labelAlign": "left"
+        },
+        {
+          "type": "input-text",
+          "label": "需求方ID",
+          "name": "service_owner_id",
+          "row": 4,
+          "id": "u:ec331c1b0d3a",
+          "visible": false,
+          "value": "12"
         }
       ],
       "actions": [
@@ -114,6 +123,11 @@
                 {
                   "actionType": "submit",
                   "componentId": "u:2ab894b7f468"
+                },
+                {
+                  "componentId": "u:57f027289684",
+                  "groupType": "component",
+                  "actionType": "reload"
                 }
               ]
             }
@@ -198,7 +212,7 @@
         }
       },
       "api": {
-        "url": "http://10.122.226.168:8808/api/v1/system/handle/negotiation",
+        "url": "http://127.0.0.1:8808/api/v1/system/handle/negotiation",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",
@@ -206,58 +220,119 @@
       }
     },
     {
+      "type": "divider",
+      "id": "u:0e8b4e584df0",
+      "lineStyle": "solid",
+      "direction": "horizontal",
+      "rotate": 0,
+      "color": "var(--colors-brand-6)",
+      "style": {
+        "borderWidth": "var(--sizes-size-3)"
+      }
+    },
+    {
+      "id": "u:83fdea67c47b",
+      "type": "form",
+      "title": "表单",
+      "mode": "flex",
+      "labelAlign": "top",
+      "dsType": "api",
+      "feat": "Insert",
+      "body": [
+        {
+          "name": "user_type",
+          "label": "协商所属",
+          "row": 0,
+          "type": "input-text",
+          "id": "u:c3f9d5798a96",
+          "value": "owner",
+          "readOnly": true
+        },
+        {
+          "name": "owner_id",
+          "label": "需求方ID",
+          "row": 1,
+          "type": "input-text",
+          "id": "u:563b5e29fa9d"
+        }
+      ],
+      "actions": [
+        {
+          "type": "button",
+          "label": "重置",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "reset",
+                  "componentId": "u:83fdea67c47b"
+                }
+              ]
+            }
+          },
+          "level": "default",
+          "id": "u:c1750b75fc6f"
+        },
+        {
+          "type": "button",
+          "label": "提交",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "submit",
+                  "componentId": "u:83fdea67c47b"
+                }
+              ]
+            }
+          },
+          "level": "primary",
+          "id": "u:331522c048ab"
+        }
+      ],
+      "resetAfterSubmit": true,
+      "api": {
+        "url": "http://192.168.227.61:8808/api/v1/system/handle/negotiationList",
+        "method": "post",
+        "requestAdaptor": "",
+        "adaptor": "",
+        "messages": {}
+      },
+      "visible": false
+    },
+    {
       "type": "crud",
       "syncLocation": false,
       "api": {
         "method": "post",
-        "url": "http://10.122.226.168:8808/api/v1/system/handle/negotiationList",
+        "url": "http://127.0.0.1:8808/api/v1/system/handle/negotiationList",
         "messages": {},
         "requestAdaptor": "",
         "adaptor": ""
       },
       "bulkActions": [],
       "itemActions": [],
-      "id": "u:94257abe3aa3",
-      "perPageAvailable": [
-        5,
-        10,
-        20,
-        50,
-        100
-      ],
-      "messages": {},
-      "defaultParams": {
-        "owner_id": "12",
-        "user_type": "owner"
-      },
-      "columnsTogglable": "auto",
-      "placeholder": "暂无数据",
-      "title": "数据交换请求",
-      "className": "m-t",
-      "headerToolbar": [
-        "bulkActions"
-      ],
       "columns": [
         {
           "name": "service_id",
           "label": "服务ID",
           "type": "text",
-          "id": "u:91ff655aa8e9",
+          "id": "u:e459318fb717",
           "placeholder": "",
           "inline": true,
           "tpl": ""
         },
         {
-          "type": "text",
-          "label": "服务名",
           "name": "service_name",
-          "id": "u:8ba44a9db82a"
+          "label": "服务名",
+          "type": "text",
+          "id": "u:35b9e697872a"
         },
         {
           "name": "db_name",
           "label": "数据库名称",
           "type": "text",
-          "id": "u:98b362f0dc3f",
+          "id": "u:3d6b138f0fd9",
           "placeholder": "",
           "inline": true,
           "tpl": ""
@@ -266,7 +341,7 @@
           "type": "text",
           "label": "数据表名称",
           "name": "table_name",
-          "id": "u:568adc90a4c6",
+          "id": "u:f3644c161cf8",
           "placeholder": "",
           "inline": true,
           "tpl": ""
@@ -292,23 +367,23 @@
                           {
                             "type": "tpl",
                             "tpl": "弹窗内容",
-                            "id": "u:0a077c4286f4"
+                            "id": "u:d66f76b39cd0"
                           }
                         ],
-                        "id": "u:2a4fd5bb67b7",
+                        "id": "u:7c238e7e8f74",
                         "actions": [
                           {
                             "type": "button",
                             "actionType": "cancel",
                             "label": "取消",
-                            "id": "u:0ad27dd8d36b"
+                            "id": "u:c529a818d02c"
                           },
                           {
                             "type": "button",
                             "actionType": "confirm",
                             "label": "确定",
                             "primary": true,
-                            "id": "u:69a907a7a903"
+                            "id": "u:19f857e8cb39"
                           }
                         ],
                         "showCloseButton": true,
@@ -324,17 +399,18 @@
                   ]
                 }
               },
-              "id": "u:2fe91f548613"
+              "id": "u:1c33e80dcc03"
             }
           ],
-          "id": "u:077f4e191412",
+          "id": "u:02540b1ad5c9",
           "placeholder": "-"
         },
         {
           "type": "text",
           "label": "备注",
           "name": "Other",
-          "id": "u:f7b01a4a372f"
+          "id": "u:33aebf5b9cc7",
+          "placeholder": "-"
         },
         {
           "type": "operation",
@@ -360,7 +436,7 @@
                       {
                         "name": "service_id",
                         "label": "服务ID",
-                        "id": "u:f605036fb022",
+                        "id": "u:4270272fffd2",
                         "placeholder": "",
                         "inline": true,
                         "tpl": "",
@@ -385,11 +461,11 @@
                             "value": "success"
                           }
                         ],
-                        "id": "u:8eaafd3dd550",
+                        "id": "u:9e949c48b639",
                         "multiple": false
                       }
                     ],
-                    "id": "u:ed9ad0b0dbcc",
+                    "id": "u:a8988a591f12",
                     "actions": [
                       {
                         "type": "submit",
@@ -402,20 +478,20 @@
                     "labelAlign": "left"
                   }
                 ],
-                "id": "u:d27621687a32",
+                "id": "u:85f294612adc",
                 "actions": [
                   {
                     "type": "button",
                     "actionType": "cancel",
                     "label": "取消",
-                    "id": "u:28a16bc3c588"
+                    "id": "u:c7e006dea4d2"
                   },
                   {
                     "type": "button",
                     "actionType": "confirm",
                     "label": "确定",
                     "primary": true,
-                    "id": "u:1c389a18e709"
+                    "id": "u:085eabe9d735"
                   }
                 ],
                 "showCloseButton": true,
@@ -426,7 +502,7 @@
                 "draggable": false,
                 "actionType": "dialog"
               },
-              "id": "u:7b6452429bda"
+              "id": "u:089c4efc973d"
             },
             {
               "label": "查看",
@@ -445,7 +521,7 @@
                     {
                       "name": "service_id",
                       "label": "服务ID",
-                      "id": "u:d50c25f096db",
+                      "id": "u:e099f07de64c",
                       "placeholder": "",
                       "inline": true,
                       "tpl": "",
@@ -454,13 +530,13 @@
                     {
                       "label": "服务名",
                       "name": "service_name",
-                      "id": "u:2020cd2ff57c",
+                      "id": "u:df25b6f5ebbb",
                       "type": "static"
                     },
                     {
                       "name": "db_name",
                       "label": "数据库名称",
-                      "id": "u:35ee4b845fea",
+                      "id": "u:e88d18a5394a",
                       "placeholder": "",
                       "inline": true,
                       "tpl": "",
@@ -469,7 +545,7 @@
                     {
                       "label": "数据表名称",
                       "name": "table_name",
-                      "id": "u:5b8b0a09a217",
+                      "id": "u:faa6ac7517c2",
                       "placeholder": "",
                       "inline": true,
                       "tpl": "",
@@ -495,23 +571,23 @@
                                       {
                                         "type": "tpl",
                                         "tpl": "弹窗内容",
-                                        "id": "u:570795f03eb9"
+                                        "id": "u:760d58581909"
                                       }
                                     ],
-                                    "id": "u:13bdf3f04680",
+                                    "id": "u:3cc16da19284",
                                     "actions": [
                                       {
                                         "type": "button",
                                         "actionType": "cancel",
                                         "label": "取消",
-                                        "id": "u:c69f12afc182"
+                                        "id": "u:8c5b0c5f72fb"
                                       },
                                       {
                                         "type": "button",
                                         "actionType": "confirm",
                                         "label": "确定",
                                         "primary": true,
-                                        "id": "u:1500afc1b27d"
+                                        "id": "u:cbba6bd1604a"
                                       }
                                     ],
                                     "showCloseButton": true,
@@ -527,17 +603,17 @@
                               ]
                             }
                           },
-                          "id": "u:cc983c49ef16"
+                          "id": "u:0ad8f1ec7444"
                         }
                       ],
-                      "id": "u:1f2009555a59",
+                      "id": "u:1c1010caa1c6",
                       "placeholder": "-",
                       "type": "static"
                     },
                     {
                       "label": "备注",
                       "name": "Other",
-                      "id": "u:edc5570c3d4b",
+                      "id": "u:395a65023252",
                       "type": "static"
                     },
                     {
@@ -561,7 +637,7 @@
                                 {
                                   "name": "service_id",
                                   "label": "服务ID",
-                                  "id": "u:bbe1ca04cc3c",
+                                  "id": "u:48805704d547",
                                   "placeholder": "",
                                   "inline": true,
                                   "tpl": "",
@@ -570,13 +646,13 @@
                                 {
                                   "label": "服务名",
                                   "name": "service_name",
-                                  "id": "u:876c8d8c8bc0",
+                                  "id": "u:e6d091bba746",
                                   "type": "input-text"
                                 },
                                 {
                                   "name": "db_name",
                                   "label": "数据库名称",
-                                  "id": "u:a7f23bf3173a",
+                                  "id": "u:191a0f699013",
                                   "placeholder": "",
                                   "inline": true,
                                   "tpl": "",
@@ -585,7 +661,7 @@
                                 {
                                   "label": "数据表名称",
                                   "name": "table_name",
-                                  "id": "u:5d6b7157e7df",
+                                  "id": "u:77f19524e9b0",
                                   "placeholder": "",
                                   "inline": true,
                                   "tpl": "",
@@ -611,23 +687,23 @@
                                                   {
                                                     "type": "tpl",
                                                     "tpl": "弹窗内容",
-                                                    "id": "u:d9f4013f7449"
+                                                    "id": "u:76abf16fe009"
                                                   }
                                                 ],
-                                                "id": "u:8f6e2756ed7e",
+                                                "id": "u:9111c8ca5c72",
                                                 "actions": [
                                                   {
                                                     "type": "button",
                                                     "actionType": "cancel",
                                                     "label": "取消",
-                                                    "id": "u:4a9e249f7b7d"
+                                                    "id": "u:c40ef5f89f05"
                                                   },
                                                   {
                                                     "type": "button",
                                                     "actionType": "confirm",
                                                     "label": "确定",
                                                     "primary": true,
-                                                    "id": "u:fdf233deabe8"
+                                                    "id": "u:d4f6484f0614"
                                                   }
                                                 ],
                                                 "showCloseButton": true,
@@ -643,26 +719,26 @@
                                           ]
                                         }
                                       },
-                                      "id": "u:2e6839f0cb44"
+                                      "id": "u:e87651ebdb70"
                                     }
                                   ],
-                                  "id": "u:e7b330451300",
+                                  "id": "u:84f443d452ba",
                                   "placeholder": "-",
                                   "type": "input-text"
                                 },
                                 {
                                   "label": "备注",
                                   "name": "Other",
-                                  "id": "u:6e714622ef3f",
+                                  "id": "u:821c898b02b3",
                                   "type": "input-text"
                                 }
                               ]
                             }
                           },
-                          "id": "u:7fd9429bd50c"
+                          "id": "u:1b0cf909ba4e"
                         }
                       ],
-                      "id": "u:9e183b2ea3fa",
+                      "id": "u:d38f5525f90f",
                       "placeholder": "-",
                       "type": "static"
                     }
@@ -671,7 +747,7 @@
                 "type": "dialog",
                 "actionType": "dialog"
               },
-              "id": "u:f0e5123f23b7"
+              "id": "u:4dbcb7578fd8"
             },
             {
               "type": "button",
@@ -689,10 +765,10 @@
                           {
                             "type": "tpl",
                             "tpl": "",
-                            "id": "u:da4275ff7490"
+                            "id": "u:f7fd93421392"
                           },
                           {
-                            "id": "u:e1ae1213d43e",
+                            "id": "u:5e70720c34a3",
                             "type": "form",
                             "title": "表单",
                             "mode": "flex",
@@ -705,7 +781,7 @@
                                 "label": "服务ID",
                                 "name": "service_id",
                                 "row": 0,
-                                "id": "u:088597b2924d",
+                                "id": "u:58ed8231e9ed",
                                 "labelAlign": "left",
                                 "readOnly": true,
                                 "value": "${service_id}"
@@ -720,7 +796,7 @@
                                     "actions": [
                                       {
                                         "actionType": "reset",
-                                        "componentId": "u:e1ae1213d43e"
+                                        "componentId": "u:5e70720c34a3"
                                       }
                                     ]
                                   }
@@ -735,7 +811,7 @@
                                     "actions": [
                                       {
                                         "actionType": "submit",
-                                        "componentId": "u:e1ae1213d43e"
+                                        "componentId": "u:5e70720c34a3"
                                       }
                                     ]
                                   }
@@ -746,7 +822,7 @@
                             "resetAfterSubmit": true,
                             "initApi": "",
                             "api": {
-                              "url": "http://10.122.226.168:8808/api/v1/system/handle/notify",
+                              "url": "http://127.0.0.1:8808/api/v1/system/handle/notify",
                               "method": "post",
                               "requestAdaptor": "",
                               "adaptor": "",
@@ -754,20 +830,20 @@
                             }
                           }
                         ],
-                        "id": "u:f03b8966231a",
+                        "id": "u:5c03ba705cfb",
                         "actions": [
                           {
                             "type": "button",
                             "actionType": "cancel",
                             "label": "取消",
-                            "id": "u:bd07f1360534"
+                            "id": "u:bb3e7390a235"
                           },
                           {
                             "type": "button",
                             "actionType": "submit",
                             "label": "确定",
                             "primary": true,
-                            "id": "u:d1b407134e4e"
+                            "id": "u:c78784d80414"
                           }
                         ],
                         "showCloseButton": true,
@@ -782,14 +858,36 @@
                   ]
                 }
               },
-              "id": "u:ceae35749534",
+              "id": "u:82ece68fc217",
               "visibleOn": "${status==\"agree\"}"
             }
           ],
-          "id": "u:9e183b2ea3fa",
+          "id": "u:d38f5525f90f",
           "placeholder": "-"
         }
-      ]
+      ],
+      "id": "u:57f027289684",
+      "perPageAvailable": [
+        5,
+        10,
+        20,
+        50,
+        100
+      ],
+      "messages": {},
+      "defaultParams": {
+        "user_type": "owner",
+        "owner_id": "12"
+      },
+      "columnsTogglable": "auto",
+      "placeholder": "暂无数据",
+      "title": "需求协商",
+      "className": "m-t",
+      "headerToolbar": [
+        "bulkActions"
+      ],
+      "filter": null,
+      "initFetch": true
     }
   ],
   "id": "u:1f2f1ebabca8",

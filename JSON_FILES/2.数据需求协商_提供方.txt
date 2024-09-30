@@ -62,11 +62,82 @@
       "color": "var(--colors-brand-10)"
     },
     {
+      "id": "u:e82c570a3a75",
+      "type": "form",
+      "title": "查询需求协商",
+      "mode": "flex",
+      "labelAlign": "top",
+      "dsType": "api",
+      "feat": "View",
+      "body": [
+        {
+          "type": "input-text",
+          "label": "协商所属",
+          "name": "user_type",
+          "row": 0,
+          "id": "u:be6cff9985a2",
+          "readOnly": true,
+          "value": "provider",
+          "labelAlign": "left"
+        },
+        {
+          "type": "input-text",
+          "label": "提供方ID",
+          "name": "provider_id",
+          "row": 1,
+          "id": "u:2d88e626e96c",
+          "labelAlign": "left"
+        }
+      ],
+      "actions": [
+        {
+          "type": "button",
+          "label": "重置",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "reset",
+                  "componentId": "u:e82c570a3a75"
+                }
+              ]
+            }
+          },
+          "level": "default",
+          "id": "u:98933579ccf4"
+        },
+        {
+          "type": "button",
+          "label": "查询",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "submit",
+                  "componentId": "u:e82c570a3a75"
+                },
+                {
+                  "componentId": "u:7f0ae1c95f02",
+                  "groupType": "component",
+                  "actionType": "reload"
+                }
+              ]
+            }
+          },
+          "level": "primary",
+          "id": "u:daa18fdd3f6c"
+        }
+      ],
+      "resetAfterSubmit": true,
+      "initApi": "",
+      "visible": false
+    },
+    {
       "type": "crud",
       "syncLocation": false,
       "api": {
         "method": "post",
-        "url": "http://localhost:8808/api/v1/system/handle/negotiationList",
+        "url": "http://127.0.0.1:8808/api/v1/system/handle/negotiationList",
         "messages": {},
         "requestAdaptor": "",
         "adaptor": ""
@@ -88,14 +159,15 @@
       },
       "columnsTogglable": "auto",
       "placeholder": "暂无数据",
-      "title": "数据交换请求",
+      "title": "需求协商",
       "className": "m-t",
       "columns": [
         {
           "name": "service_id",
           "label": "服务ID",
           "type": "text",
-          "id": "u:137c77560e4d"
+          "id": "u:137c77560e4d",
+          "placeholder": "-"
         },
         {
           "name": "service_name",
@@ -372,7 +444,7 @@
                       }
                     },
                     "api": {
-                      "url": "http://localhost:8808/api/v1/system/handle/negotiationAgree",
+                      "url": "http://127.0.0.1:8808/api/v1/system/handle/negotiationAgree",
                       "method": "post",
                       "requestAdaptor": "",
                       "adaptor": "",
@@ -587,13 +659,7 @@
           "label": "操作"
         }
       ],
-      "quickSaveItemApi": {
-        "url": "http://localhost:8808/api/v1/system/handle/negotiationAgree",
-        "method": "post",
-        "messages": {},
-        "requestAdaptor": "",
-        "adaptor": ""
-      }
+      "initFetch": true
     },
     {
       "type": "button",
@@ -790,7 +856,7 @@
       },
       "visible": false,
       "api": {
-        "url": "http://localhost:8808/api/v1/system/handle/negotiationAgree",
+        "url": "http://10.122.226.168:8808/api/v1/system/handle/negotiationAgree",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",

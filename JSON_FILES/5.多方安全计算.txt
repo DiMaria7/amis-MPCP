@@ -56,18 +56,18 @@
       "feat": "Insert",
       "body": [
         {
-          "type": "input-text",
-          "label": "服务ID",
           "name": "serviceID",
+          "label": "服务ID",
           "row": 0,
+          "type": "input-text",
           "id": "u:76108b39a55d",
           "colSize": "1"
         },
         {
-          "name": "computeType",
-          "label": "计算类型",
-          "row": 1,
           "type": "select",
+          "label": "计算类型",
+          "name": "computeType",
+          "row": 1,
           "id": "u:2172c2b3d42b",
           "multiple": false,
           "options": [
@@ -98,6 +98,8 @@
           "type": "combo",
           "label": "计算方式",
           "name": "criteria",
+          "row": 2,
+          "id": "u:a5951b47dd19",
           "multiple": true,
           "addable": true,
           "removable": true,
@@ -140,8 +142,6 @@
               "visible": true
             }
           ],
-          "row": 2,
-          "id": "u:a5951b47dd19",
           "strictMode": false,
           "syncFields": [],
           "minLength": 1,
@@ -153,9 +153,11 @@
           "placeholder": ""
         },
         {
-          "type": "combo",
-          "label": "标识符",
           "name": "identifier",
+          "label": "标识符",
+          "row": 3,
+          "type": "combo",
+          "id": "u:b2992892e339",
           "multiple": true,
           "addable": true,
           "removable": true,
@@ -197,8 +199,6 @@
               "autoFill": {}
             }
           ],
-          "row": 3,
-          "id": "u:b2992892e339",
           "strictMode": false,
           "syncFields": [],
           "draggable": false,
@@ -318,7 +318,7 @@
         }
       },
       "api": {
-        "url": "http://10.122.226.168:8808/api/v1/system/compute/sendRequest",
+        "url": "http://127.0.0.1:8808/api/v1/system/compute/sendRequest",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",
@@ -344,12 +344,15 @@
       "type": "crud",
       "syncLocation": false,
       "api": {
-        "method": "get",
-        "url": ""
+        "method": "post",
+        "url": "http://localhost:8808/api/v1/system/compute/TaskList",
+        "messages": {},
+        "requestAdaptor": "",
+        "adaptor": ""
       },
       "bulkActions": [],
       "itemActions": [],
-      "id": "u:b11118bd6ff1",
+      "id": "u:14af460c964c",
       "perPageAvailable": [
         5,
         10,
@@ -361,45 +364,52 @@
       "headerToolbar": [
         "bulkActions"
       ],
+      "defaultParams": {
+        "user_type": "owner",
+        "owner_id": "12"
+      },
       "columns": [
         {
-          "name": "service_name",
-          "label": "服务名",
           "type": "text",
-          "id": "u:708a5d102bbf",
-          "placeholder": "/"
-        },
-        {
-          "name": "user_code",
-          "label": "用户编码",
-          "type": "text",
-          "id": "u:13d05c83940f",
-          "placeholder": "-"
+          "name": "computeTaskID",
+          "label": "计算任务ID",
+          "id": "u:43785a6d75fc"
         },
         {
           "type": "text",
-          "label": "户名",
-          "name": "user_name",
-          "id": "u:c45341378ab2",
-          "placeholder": "/"
+          "name": "computeType",
+          "label": "计算类型",
+          "id": "u:2301503d91e3"
         },
         {
           "type": "text",
+          "name": "serviceID",
+          "label": "服务ID",
+          "id": "u:a66746dd70b7"
+        },
+        {
+          "type": "text",
+          "name": "HandleIDList",
+          "label": "handleID",
+          "id": "u:031b1684f490"
+        },
+        {
+          "type": "date",
+          "name": "queryStartTime",
           "label": "起始时间",
-          "name": "date_start",
-          "id": "u:e4a11aef747a"
+          "id": "u:1baae833504d"
+        },
+        {
+          "type": "date",
+          "name": "queryEndTime",
+          "label": "结束时间",
+          "id": "u:b3b01760b478"
         },
         {
           "type": "text",
-          "label": "终止时间",
-          "name": "date_end",
-          "id": "u:422e6293364e"
-        },
-        {
-          "type": "text",
-          "label": "用电量",
-          "name": "result",
-          "id": "u:c28eef263ae6"
+          "name": "providerID",
+          "label": "提供方ID",
+          "id": "u:f1001b52738c"
         }
       ]
     }

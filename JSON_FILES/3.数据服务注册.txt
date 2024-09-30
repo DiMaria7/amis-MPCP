@@ -1,6 +1,5 @@
 {
   "type": "page",
-  "title": "",
   "body": [
     {
       "type": "tpl",
@@ -625,7 +624,7 @@
         }
       },
       "api": {
-        "url": "http://10.122.226.168:8808/api/v1/system/handle/register",
+        "url": "http://127.0.0.1:8808/api/v1/system/handle/register",
         "method": "post",
         "requestAdaptor": "",
         "adaptor": "",
@@ -651,5 +650,6 @@
     }
   },
   "definitions": {},
-  "data": {}
+  "data": {},
+  "title": ""
 }
