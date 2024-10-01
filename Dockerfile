@@ -1,5 +1,5 @@
 # 使用官方的 Node 镜像作为基础镜像
-FROM node:16
+FROM node:20
 
 # 设置工作目录
 WORKDIR /app
@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 80
 
 # 设置容器的默认命令
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]
